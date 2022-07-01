@@ -19,11 +19,15 @@ CONT_LOOP := false
 return
 
 f3::
-if (ok:=FindText(X, Y, 1687-150000, 920-150000, 1687+150000, 920+150000, 0, 0, Text)) {
-    ToolTip, % "True"
+if (SHUTDOWN_ON_ERROR) {
+    SHUTDOWN_ON_ERROR := false
+    TrayTip, Shutdown on error disabled, The script will only close itself upon reaching an error state, 3
+    return
 }
 else {
-    ToolTip, % "False"
+    SHUTDOWN_ON_ERROR := true
+    TrayTip, Shutdown on error enabled, The script will shutdown the computer upon reaching an error state, 3
+    return
 }
 return
 
@@ -44,8 +48,12 @@ farmLoop() {
         found := false
 
         if (timeoutCount > 25) {
-            ; Shutdown PC if an error state is reached indefinitely
-            Shutdown, 1
+            ; Error state reached, act on shutdown option
+            if (SHUTDOWN_ON_ERROR) {
+                Shutdown, 1
+                ExitApp
+            }
+        
             ExitApp
         }
         
