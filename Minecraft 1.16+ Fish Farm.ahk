@@ -5,8 +5,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include FindText.ahk
 
-global Text:="|<>*125$101.zzzzzzzzzzzzzzzzzs00szzzszzszzzzzzk01lzzzlzzlzzzzzzU03XzzzXzzXzzzzzz7zzzzzz7zzzzzzzzyDzzzzzyDzzzzzzzzwTzzzzzwTzzzzzzzzs0zsz00ss7ss07z03k1zly01lkDlk0Dy07U3zXw03XUTXU0Tw0D7zz77zz0z777z77zSDzyCDzy1yCCDyCDywTzwQTzw3wQQTwQTxszzsz07szssszsszvlzzly0DlzlllzllzrXzzXw0TXzXXXzXXzj7zz7zz77z777z7s0SDzyDzyCDyCCDyDk0wTzwTzwQTwQQTwTU1szzss07szssszszzvlzzlk0DlzlllzlzzrXzzXU0TXzXXXzXzzjzzzzzzzzzzzzzz00zzzzzzzzzzzzzzy01zzzzzzzzzzzzzzw03"
-global TIME_OUT = 25000 ; 25 sec
+global Text:="|<>*119$71.kzzzzzzzzzzzVzzzzzzzzzzz3zzzzzzzzzzy7zzzzzzzzzzwDzzzzzzzzzzsS0TzU0TzU01kw0zz00zz003Vs1zy01zy0073k3zw03zw00C0TsS7zsS7zzw0zkwDzkwDzzs1zVsTzVsTzzk3z3kzz3kzzzVzy7U007y01z3zwD000Dw03y7zsS000Ts07wDzkw000zk0DsTzVsTzzzzzVkzz3kzzzzzz3Vzy7Vzzzzzy73zwD3zzzzzwC7zsTs00S007wDzkzk00w00DsTzVzU01s00Tkzz3z003k00z"
+global TIME_OUT = 35000 ; 35 sec
 global CONT_LOOP := false
 
 f1::
@@ -19,7 +19,7 @@ CONT_LOOP := false
 return
 
 f3::
-if (ok:=FindText(X, Y, 1567-150000, 959-150000, 1567+150000, 959+150000, 0, 0, Text)) {
+if (ok:=FindText(X, Y, 1687-150000, 920-150000, 1687+150000, 920+150000, 0, 0, Text)) {
     ToolTip, % "True"
 }
 else {
@@ -77,7 +77,7 @@ farmLoop() {
             }
 
             ; Check for caught fish message
-            if (ok:=FindText(X, Y, 1567-150000, 959-150000, 1567+150000, 959+150000, 0, 0, Text)) {
+            if (ok:=FindText(X, Y, 1687-150000, 920-150000, 1687+150000, 920+150000, 0, 0, Text)) {
                 found := true
                 timeoutCount := 0
             }
